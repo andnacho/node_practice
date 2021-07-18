@@ -1,0 +1,22 @@
+extends layouts/main-layout
+
+block styles
+    link(rel="stylesheet", href="/css/main.css")
+
+block content
+    main
+        .grid
+            if prods.length > 0
+                each product in prods
+                    article.card.product-item
+                        header.card__header
+                            h1.product__title #{product.title}
+                        .card__image
+                            img(src="/book.jpeg", alt="A book")
+                        .card__content
+                            h2.product__price $19.99
+                            p.product__description A very interesting
+                        .card__actions
+                            button.btn Add to cart
+            else
+                h1 No Products
